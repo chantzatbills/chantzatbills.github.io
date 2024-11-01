@@ -1,7 +1,17 @@
 ---
 layout: master
-# Note that below the 'for my_page in pages' and 'if my_page.title'... should be on the same line to remove whitespace between li elements.
 ---
+
+<!-- Redirect to the stops/0 page -->
+<meta http-equiv="refresh" content="0; url=https://chantzatbills.github.io/stops/0/" />
+
+<div class="home">
+  <p>If you are not redirected automatically, <a href="https://chantzatbills.github.io/stops/0/">click here</a>.</p>
+</div>
+
+<!--
+  The code below is kept for reference, in case you want to revert back or use this content in the future.
+-->
 
 <div class="home">
 
@@ -16,20 +26,18 @@ layout: master
       </li>{% endif %}{% endfor %}
   </ul>
 
-<!--
+  <!--
+    For reference: This is a list of all the stops and titles in this audio guide
+  -->
 
-For reference: This is a list of all the stops and titles in this audio guide
-
-{% assign pages = site.pages | sort: 'page_rank' %}
-    {% for my_page in pages %}{% if (my_page.section_title != null) and my_page.type == 'stop' %}
-Stop #: {{ my_page.stop_id }}
-Section Title: {{ my_page.section_title }}
-Title: {{ my_page.title }}
-      {% endif %}{% endfor %}
-
--->
+  {% assign pages = site.pages | sort: 'page_rank' %}
+  {% for my_page in pages %}{% if (my_page.section_title != null) and my_page.type == 'stop' %}
+  Stop #: {{ my_page.stop_id }}
+  Section Title: {{ my_page.section_title }}
+  Title: {{ my_page.title }}
+  {% endif %}{% endfor %}
   
-<!--
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
--->
+  <!--
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+  -->
 </div>
